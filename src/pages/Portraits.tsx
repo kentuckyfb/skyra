@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import ImageGallery from '../components/ImageGallery';
 import SuggestedContent from '../components/SuggestedContent';
 import ScrollAnimations from '../components/ScrollAnimations';
+import SectionSeparator from '../components/ui/SectionSeparator';
 import portraitsHero from '../assets/portraits-hero.jpg';
 import corporateHero from '../assets/corporate-hero.jpg';
 import concertsHero from '../assets/concerts-hero.jpg';
@@ -65,74 +66,40 @@ const Portraits = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={portraitsHero}
-            alt="Portrait Photography"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-background/30" />
-        </div>
-
-        {/* Subtle background curves */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div 
-            className="absolute top-1/4 right-1/5 w-60 h-1 bg-gradient-to-r from-primary/13 to-transparent rounded-full"
-            style={{ animation: 'gentle-float 14s ease-in-out infinite' }}
-          />
-          <div 
-            className="absolute bottom-1/3 left-1/4 w-36 h-1 bg-gradient-to-l from-primary/9 to-transparent rounded-full"
-            style={{ animation: 'subtle-drift 18s ease-in-out infinite', animationDelay: '6s' }}
-          />
-        </div>
-        
-        <div className="relative container mx-auto px-6 text-center">
+      <section className="relative pt-20 md:pt-32 pb-24 text-center bg-card/20">
+        <div className="container mx-auto px-4 md:px-6">
           <ScrollAnimations>
-            <div className="max-w-4xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-8">
-                <Heart className="w-4 h-4" />
-                <span className="text-sm font-medium">Personal Portrait Photography</span>
-              </div>
-              <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
-                Portrait <span className="text-primary">Stories</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-                Stunning individual and family portrait sessions that capture authentic moments, 
-                genuine emotions, and the unique essence of who you are.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="#services" 
-                  className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium tracking-wide hover:scale-105 transition-all duration-300 hover:shadow-2xl"
-                >
-                  Portrait Sessions
-                </a>
-                <a 
-                  href="#gallery" 
-                  className="border border-primary/20 text-foreground hover:bg-primary/10 px-8 py-4 rounded-full transition-all duration-300 font-medium"
-                >
-                  View Gallery
-                </a>
-              </div>
-            </div>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">Portrait <span className="text-primary">Photography</span></h1>
+            <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              Stunning individual and family portrait sessions that capture authentic moments and genuine emotions.
+            </p>
+          </ScrollAnimations>
+        </div>
+        <SectionSeparator />
+      </section>
+
+      {/* Gallery Section */}
+      <section id="gallery" className="py-16 md:py-24">
+        <div className="container mx-auto px-6">
+          <ScrollAnimations>
+            <ImageGallery images={galleryImages} title="Portrait" />
           </ScrollAnimations>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 relative">
+      <section id="services" className="py-16 md:py-24 bg-card/20">
         <div className="container mx-auto px-6">
           <ScrollAnimations>
-            <div className="text-center mb-20">
+            <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
                 <Star className="w-4 h-4" />
                 <span className="text-sm font-medium">Portrait Services</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
                 Portrait <span className="text-primary">Sessions</span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
                 Professional portrait photography that celebrates life's precious moments and captures the authentic beauty of human connection.
               </p>
             </div>
@@ -153,15 +120,6 @@ const Portraits = () => {
                   <p className="text-muted-foreground leading-relaxed mb-6">
                     {service.description}
                   </p>
-
-                  <ul className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                        <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </ScrollAnimations>
             ))}
@@ -169,49 +127,12 @@ const Portraits = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section id="gallery" className="py-24 bg-card/20">
-        <div className="container mx-auto px-6">
-          <ScrollAnimations>
-            <ImageGallery images={galleryImages} title="Portrait" />
-          </ScrollAnimations>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <ScrollAnimations>
-            <div className="bg-gradient-to-r from-primary to-primary/80 rounded-3xl p-12 md:p-16 text-center text-primary-foreground relative overflow-hidden">
-              {/* Background decoration */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-1/4 left-1/4 w-32 h-1 bg-primary-foreground rounded-full transform rotate-45" />
-                <div className="absolute bottom-1/4 right-1/4 w-24 h-1 bg-primary-foreground rounded-full transform -rotate-45" />
-              </div>
-              
-              <div className="relative z-10">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-                  Ready to Capture Your <br />
-                  <span className="text-primary-foreground/80">Perfect Portrait?</span>
-                </h2>
-                <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/90 font-light">
-                  Let's create beautiful portraits that celebrate your unique story, preserve precious family moments, and capture the authentic you.
-                </p>
-                <a 
-                  href="/contact" 
-                  className="bg-primary-foreground text-primary px-8 py-4 rounded-full font-medium tracking-wide hover:scale-105 transition-all duration-300 hover:shadow-2xl inline-flex items-center gap-2"
-                >
-                  Book Your Session
-                  <ArrowRight size={18} />
-                </a>
-              </div>
-            </div>
-          </ScrollAnimations>
-        </div>
-      </section>
-
       {/* Suggested Content */}
-      <SuggestedContent items={suggestedItems} title="Explore Other Services" />
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-6">
+          <SuggestedContent items={suggestedItems} />
+        </div>
+      </section>
     </Layout>
   );
 };

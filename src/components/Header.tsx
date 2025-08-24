@@ -21,9 +21,9 @@ const Header = () => {
   }, [location]);
 
   const navigation = [
-    { name: 'Services', href: '/#work', isInternal: true },
-    { name: 'About', href: '/#about', isInternal: true },
-    { name: 'Contact', href: '/contact', isInternal: false },
+    { name: 'Home', href: '/', isInternal: false },
+    { name: 'Portfolio', href: '/portfolio', isInternal: false },
+    { name: 'About', href: '/about', isInternal: false },
   ];
 
   const services = [
@@ -79,7 +79,7 @@ const Header = () => {
               to="/contact"
               className="bg-primary text-primary-foreground px-6 py-2 rounded-full text-sm font-medium hover:scale-105 transition-all duration-300 hover:shadow-lg"
             >
-              Get Quote
+              Contact Us
             </Link>
           </nav>
 
@@ -150,7 +150,7 @@ const Header = () => {
                 onClick={() => setIsOpen(false)}
                 className="w-full bg-primary text-primary-foreground py-3 rounded-xl font-medium text-center hover:scale-[1.02] transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2"
               >
-                <span>Get Free Quote</span>
+                <span>Contact Us</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

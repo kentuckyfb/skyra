@@ -66,7 +66,7 @@ const Concerts = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={concertsHero}
@@ -95,10 +95,10 @@ const Concerts = () => {
                 <Music className="w-4 h-4" />
                 <span className="text-sm font-medium">Live Event Photography</span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
                 Concert <span className="text-primary">Energy</span>
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed font-light">
                 Capture the raw energy, emotion, and atmosphere of live performances. We specialize 
                 in concert, festival, and live event photography that brings the music to life.
               </p>
@@ -121,19 +121,28 @@ const Concerts = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-24 relative">
+      {/* Gallery Section */}
+      <section id="gallery" className="py-16 md:py-20 bg-card/20">
         <div className="container mx-auto px-6">
           <ScrollAnimations>
-            <div className="text-center mb-20">
+            <ImageGallery images={galleryImages} title="Concert" />
+          </ScrollAnimations>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-16 md:py-20 relative">
+        <div className="container mx-auto px-6">
+          <ScrollAnimations>
+            <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
                 <Zap className="w-4 h-4" />
                 <span className="text-sm font-medium">Live Event Coverage</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
                 Concert <span className="text-primary">Coverage</span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
                 Professional photography services that capture every moment of your live events, from intimate venues to large festivals.
               </p>
             </div>
@@ -155,65 +164,17 @@ const Concerts = () => {
                     {service.description}
                   </p>
 
-                  <ul className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                        <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                                  </div>
               </ScrollAnimations>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section id="gallery" className="py-24 bg-card/20">
-        <div className="container mx-auto px-6">
-          <ScrollAnimations>
-            <ImageGallery images={galleryImages} title="Concert" />
-          </ScrollAnimations>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <ScrollAnimations>
-            <div className="bg-gradient-to-r from-primary to-primary/80 rounded-3xl p-12 md:p-16 text-center text-primary-foreground relative overflow-hidden">
-              {/* Background decoration */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-1/4 left-1/4 w-32 h-1 bg-primary-foreground rounded-full transform rotate-45" />
-                <div className="absolute bottom-1/4 right-1/4 w-24 h-1 bg-primary-foreground rounded-full transform -rotate-45" />
-              </div>
-              
-              <div className="relative z-10">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-                  Ready to Capture Your <br />
-                  <span className="text-primary-foreground/80">Live Event?</span>
-                </h2>
-                <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/90 font-light">
-                  Let's document your concert, festival, or live performance with dynamic photography that captures every electrifying moment.
-                </p>
-                <a 
-                  href="/contact" 
-                  className="bg-primary-foreground text-primary px-8 py-4 rounded-full font-medium tracking-wide hover:scale-105 transition-all duration-300 hover:shadow-2xl inline-flex items-center gap-2"
-                >
-                  Book Your Event
-                  <ArrowRight size={18} />
-                </a>
-              </div>
-            </div>
-          </ScrollAnimations>
-        </div>
-      </section>
-
+      
       {/* Suggested Content */}
-      <SuggestedContent items={suggestedItems} title="Explore Other Services" />
-    </Layout>
+          </Layout>
   );
 };
 

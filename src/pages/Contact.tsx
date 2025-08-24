@@ -37,33 +37,6 @@ const Contact = () => {
     }));
   };
 
-  const contactMethods = [
-    {
-      icon: Phone,
-      title: 'Call Us',
-      primary: '+94 77 123 4567',
-      secondary: 'Mon - Fri, 9AM - 6PM',
-      action: 'tel:+94771234567',
-      cta: 'Call Now'
-    },
-    {
-      icon: Mail,
-      title: 'Email Us',
-      primary: 'hello@skyra.lk',
-      secondary: 'Response within 24 hours',
-      action: 'mailto:hello@skyra.lk',
-      cta: 'Send Email'
-    },
-    {
-      icon: MapPin,
-      title: 'Visit Studio',
-      primary: '123 Galle Road',
-      secondary: 'Colombo 07, Sri Lanka',
-      action: '#map',
-      cta: 'Get Directions'
-    }
-  ];
-
   const features = [
     { icon: CheckCircle, text: 'Free consultation' },
     { icon: Clock, text: '24-hour response' },
@@ -133,33 +106,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Quick Contact Methods - Mobile First */}
-      <section className="py-12 md:py-16">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-            {contactMethods.map((method, index) => (
-              <ScrollAnimations key={method.title} delay={index * 100}>
-                <a
-                  href={method.action}
-                  className="group block bg-card/30 backdrop-blur-sm border border-border/50 rounded-xl md:rounded-2xl p-6 md:p-8 text-center transition-all duration-500 hover:-translate-y-1 md:hover:-translate-y-2 hover:shadow-xl hover:border-primary/20 active:scale-95"
-                >
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-primary/10 group-hover:bg-primary/20 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 transition-colors duration-300">
-                    <method.icon size={24} className="text-primary md:w-8 md:h-8" />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-semibold mb-2">{method.title}</h3>
-                  <p className="text-base md:text-lg text-foreground mb-1">{method.primary}</p>
-                  <p className="text-sm text-primary mb-3 md:mb-4">{method.secondary}</p>
-                  <div className="inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:translate-x-1 transition-transform">
-                    <span>{method.cta}</span>
-                    <Send size={14} />
-                  </div>
-                </a>
-              </ScrollAnimations>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Main Contact Section - Mobile Optimized */}
       <section className="py-16 md:py-24 bg-card/20">
         <div className="container mx-auto px-4 md:px-6">
@@ -176,9 +122,9 @@ const Contact = () => {
               </div>
             </ScrollAnimations>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+            <div className="flex justify-center">
               {/* Contact Form - Full width on mobile, takes more space on desktop */}
-              <ScrollAnimations>
+              <ScrollAnimations className="w-full lg:w-2/3">
                 <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl md:rounded-2xl p-6 md:p-8">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Name and Email Row */}
@@ -302,113 +248,11 @@ const Contact = () => {
                   </form>
                 </div>
               </ScrollAnimations>
-
-              {/* Why Choose Us - Sidebar */}
-              <ScrollAnimations delay={200}>
-                <div className="space-y-6 md:space-y-8">
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
-                      Why Choose <span className="text-primary">SKYRA?</span>
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      We're passionate about creating visual stories that matter. With years of experience 
-                      and a commitment to excellence, we deliver photography that exceeds expectations.
-                    </p>
-                  </div>
-
-                  <div className="space-y-4 md:space-y-6">
-                    {benefits.map((benefit, index) => (
-                      <div key={index} className="flex items-start gap-3 md:gap-4 p-4 rounded-xl bg-card/30 backdrop-blur-sm border border-border/50">
-                        <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0">
-                          <benefit.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-                        </div>
-                        <div>
-                          <h4 className="font-semibold mb-1 md:mb-2 text-sm md:text-base">{benefit.title}</h4>
-                          <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
-                            {benefit.description}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Free Consultation CTA */}
-                  <div className="bg-primary/5 rounded-xl md:rounded-2xl p-4 md:p-6 border border-primary/10">
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Star className="w-4 h-4 text-primary" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold mb-2 text-primary text-sm md:text-base">Free Consultation Available</h4>
-                        <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
-                          Not sure which service is right for you? Book a free consultation where we'll discuss 
-                          your project requirements and recommend the best approach.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </ScrollAnimations>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Map Section - Mobile Optimized */}
-      <section id="map" className="py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <ScrollAnimations>
-            <div className="text-center mb-12 md:mb-16 space-y-4 md:space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-full bg-primary/10 text-primary">
-                <MapPin className="w-3 h-3 md:w-4 md:h-4" />
-                <span className="text-xs md:text-sm font-medium">Visit Our Studio</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-                Studio <span className="text-primary">Location</span>
-              </h2>
-              <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
-                Located in the heart of Colombo, our studio is easily accessible and equipped with state-of-the-art facilities.
-              </p>
-            </div>
-          </ScrollAnimations>
-          
-          <ScrollAnimations delay={200}>
-            <div className="aspect-video rounded-xl md:rounded-2xl overflow-hidden bg-card/30 backdrop-blur-sm border border-border/50 shadow-2xl">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.865872624094!2d79.86124431477357!3d6.914993494997094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae259664b6d3fdb%3A0x5ae89c8b78b1e2a1!2sColombo%2007%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1234567890"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="filter grayscale hover:grayscale-0 transition-all duration-500"
-              />
-            </div>
-          </ScrollAnimations>
-
-          {/* Contact Info Cards Below Map - Mobile */}
-          <ScrollAnimations delay={400}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12">
-              <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-4 md:p-6 text-center">
-                <MapPin className="w-6 h-6 text-primary mx-auto mb-2" />
-                <h4 className="font-semibold mb-1">Address</h4>
-                <p className="text-sm text-muted-foreground">123 Galle Road<br />Colombo 07, Sri Lanka</p>
-              </div>
-              <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-4 md:p-6 text-center">
-                <Clock className="w-6 h-6 text-primary mx-auto mb-2" />
-                <h4 className="font-semibold mb-1">Studio Hours</h4>
-                <p className="text-sm text-muted-foreground">Mon-Fri: 9AM-6PM<br />Sat: 10AM-4PM</p>
-              </div>
-              <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-4 md:p-6 text-center">
-                <Calendar className="w-6 h-6 text-primary mx-auto mb-2" />
-                <h4 className="font-semibold mb-1">Appointments</h4>
-                <p className="text-sm text-muted-foreground">By appointment<br />Same-day available</p>
-              </div>
-            </div>
-          </ScrollAnimations>
-        </div>
-      </section>
     </Layout>
   );
 };

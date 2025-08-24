@@ -207,7 +207,7 @@ const Lightbox = ({
     <div style={lightboxStyle}>
       {/* CLOSE BUTTON - TOP RIGHT */}
       <button onClick={onClose} style={closeButtonStyle}>
-        ✕
+        <X size={24} />
       </button>
 
       {/* MAIN CONTENT AREA */}
